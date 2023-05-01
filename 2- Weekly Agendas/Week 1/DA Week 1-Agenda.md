@@ -63,7 +63,7 @@ class="c42 c82">Questions & Problems Related to Course Topics (30m)</span><span 
 - [Python Lambda - Exercises, Practice, Solution](https://www.w3resource.com/python-exercises/lambda/index.php)
 
 - **Solve the following questions in a team collaboration.**
-
+<br><br>
 
 **1. What will be the output of the following Python code?**
 
