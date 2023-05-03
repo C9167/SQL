@@ -58,7 +58,7 @@ The main and only aim of this part is to develop your skills that you need durin
 
 **1. Discuss and solve the Python(Numpy and Pandas) questions below**
 
-- Numpy & Pandas-Exercises_Week 2
+- [Numpy & Pandas-Exercises](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%202/Numpy%20%26%20Pandas%20Exercise.ipynb)
 
 
 **2. Convert and merge json files into one Pandas.Dataframe**
