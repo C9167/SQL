@@ -1,6 +1,6 @@
-<h1><strong><span style="color: #77C8D5;">Week-2 (09 August)</strong></span>
+<h1><strong><span style="color: #77C8D5;">Week-2 </strong></span>
 
-![logo](ds_agenda_logo.png)
+![logo](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/teamwork_logo.png)
 
 <br>
 
