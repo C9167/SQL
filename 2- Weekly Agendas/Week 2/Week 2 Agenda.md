@@ -111,7 +111,7 @@ class="c42 c82">Questions & Problems Related to Course Topics (30m)</span><span 
 
 - [How to make Lazy objects in Python](https://coderbook.com/python/2020/04/23/how-to-make-lazy-python.html)
 
-
+<br>
 **Attempt to solve the questions in the following workshop notebook on your own. It is not important whether you reach a solution or not. We encourage you to challenge yourself by thinking in Python for the solution.**
 
 [Workshop-2 (Prep DAwPy)](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%202/Workshop2.ipynb)
