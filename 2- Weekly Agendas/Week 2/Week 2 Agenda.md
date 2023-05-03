@@ -78,7 +78,14 @@ The main and only aim of this part is to develop your skills that you need durin
                   
 **1.  What is the purpose of using a virtual environment?**
 
-<hr>      
+<hr>  
+<hr>
+<table style= "width:100%;">
+                <tr>
+                <td style="color: #FA8072; text-align:left "><h3><strong><p>Additional Resources</td>
+                <td style="color: #FA8072; text-align:right;"><h3><strong><p>15m</p><td>                </tr>
+</table                 
+[Workshop-2 (Prep DAwPy)](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%201/Workshop-2%20(Prep%20DAwPy).ipynb)                  
 <br>
 <hr>                  
 <table style= "width:100%;">
