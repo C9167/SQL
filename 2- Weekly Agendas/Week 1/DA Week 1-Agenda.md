@@ -361,7 +361,7 @@ print(b)
 <br><br>
 - **Attempt to solve the questions in the following workshop notebooks on your own. It is not important whether you reach a solution or not. We encourage you to challenge yourself by thinking in Python for the solution.**
 
-[Workshop-1 (Prep DAwPy)](https://github.com/clarusway/DS-EU-1523-DA-Module/raw/main/2-%20Weekly%20Agendas/Week%201/Workshop-1%20(Prep%20DAwPy).ipynb)
+[Workshop-1 (Prep DAwPy)](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%201/Workshop-1%20(Prep%20DAwPy).ipynb)
 
 [Workshop-2 (Prep DAwPy)](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%201/Workshop-2%20(Prep%20DAwPy).ipynb)
 
