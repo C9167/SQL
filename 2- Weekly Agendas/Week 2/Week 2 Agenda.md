@@ -56,44 +56,28 @@ The main and only aim of this part is to develop your skills that you need durin
 <h4><strong>Questions & Problems Related to Course Topics</strong></h4>
 <hr>
 
-**1. Discuss and solve the Python(Numpy and Pandas) questions below**
+**1. [Modules and Packages Quiz](https://realpython.com/quizzes/pybasics-modules-packages/)**
 
-- [Numpy & Pandas-Exercises](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%202/Numpy%20%26%20Pandas%20Exercise.ipynb)
-
-
-**2. Convert and merge json files into one Pandas.Dataframe**
-<br>
-
-- data1 = [{'name': 'JOHN', 'age': 27}, {'name': 'HENRY2', 'age': 14}]
-<br>
-
-- data2 = { 1:{'name': 'vikash', 'age': 27}, 2:{'name': 'Satyam', 'age': 14} }
-<br>
-
-- data3 = [{'id': 1, 'name': "Cole Volk", 'fitness': {'height': 130, 'weight': 60}}, {'name': "Mose Reg", 'fitness': {'height': 130, 'weight': 60}}, {'id': 2, 'name': 'Faye Raker', 'fitness': {'height': 130, 'weight': 60}}]
-
-
-  
-
-
-<br>
-<h4><strong>Interview Questions Related to Course Topics</strong></h4>
-<hr>
-
-**3. How can we convert a Series to DataFrame?**
-<br>
-
-**4. How to convert String to date?**
-<br>
 
 <hr>
-
-
-
-
 <br>
 
+<h4><strong>Interview Questions</strong></h4>
+<hr>
+                  
+**1.  What is the purpose of using a virtual environment?**
 
+<hr>      
+<br>
+<h4><strong>Video of the Week</strong></h4>
+
+<hr>
+                  
+[How to Google](https://www.youtube.com/watch?v=xD0jkUCJFr8&list=PL6Mbwnna00j28LCaMBUQ_4u6BNGrYnJfg)
+                
+<hr>                  
+                  
+                  
 <table style= "width:100%;">
                 <tr>
                 <td style="color: #FA8072; text-align:left "><h3><strong><p>Project Discussion</td>
