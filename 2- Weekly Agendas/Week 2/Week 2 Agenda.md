@@ -53,37 +53,41 @@ Please remember; we don’t want to put extra pressure to anyone, it’s totally
 The main and only aim of this part is to develop your skills that you need during and after the recruitment process and make you ready for the DS career.)
 <br>
 <br>
+<hr>
 <table style= "width:100%;">
                 <tr>
                 <td style="color: #FA8072; text-align:left "><h3><strong><p>Questions & Problems Related to Course Topics</td>
                 <td style="color: #FA8072; text-align:right;"><h3><strong><p>15m</p><td>                </tr>
 </table>                  
-<hr>
+
 
 **1. [Modules and Packages Quiz](https://realpython.com/quizzes/pybasics-modules-packages/)**
 
+**2. [Quiz on Python Exception Handling](https://pythongeeks.org/quizzes/quiz-on-python-exception-handling/)**
 
+**3. [Reading and Writing Files in Python Quiz](https://realpython.com/quizzes/read-write-files-python/)**                 
 <hr>
 <br>
+<hr>
 <table style= "width:100%;">
                 <tr>
                 <td style="color: #FA8072; text-align:left "><h3><strong><p>Interview Questions</td>
                 <td style="color: #FA8072; text-align:right;"><h3><strong><p>15m</p><td>                </tr>
 </table>
-<hr>
+
                   
 **1.  What is the purpose of using a virtual environment?**
 
 <hr>      
 <br>
-                  
+<hr>                  
 <table style= "width:100%;">
                 <tr>
                 <td style="color: #FA8072; text-align:left "><h3><strong><p>Video of the Week</td>
                 <td style="color: #FA8072; text-align:right;"><h3><strong><p>55m</p><td>                </tr>
 </table>                  
 
-<hr>
+
                   
 [How to Google](https://www.youtube.com/watch?v=xD0jkUCJFr8&list=PL6Mbwnna00j28LCaMBUQ_4u6BNGrYnJfg)
                 
