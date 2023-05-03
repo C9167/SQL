@@ -363,8 +363,6 @@ print(b)
 
 [Workshop-1 (Prep DAwPy)](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%201/Workshop-1%20(Prep%20DAwPy).ipynb)
 
-[Workshop-2 (Prep DAwPy)](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%201/Workshop-2%20(Prep%20DAwPy).ipynb)
-
 <br>
 <hr>
 
