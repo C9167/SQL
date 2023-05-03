@@ -53,7 +53,11 @@ Please remember; we don’t want to put extra pressure to anyone, it’s totally
 The main and only aim of this part is to develop your skills that you need during and after the recruitment process and make you ready for the DS career.)
 <br>
 <br>
-<h4><strong>Questions & Problems Related to Course Topics</strong></h4>
+<table style= "width:100%;">
+                <tr>
+                <td style="color: #FA8072; text-align:left "><h3><strong><p>Questions & Problems Related to Course Topics</td>
+                <td style="color: #FA8072; text-align:right;"><h3><strong><p>15m</p><td>                </tr>
+</table>                  
 <hr>
 
 **1. [Modules and Packages Quiz](https://realpython.com/quizzes/pybasics-modules-packages/)**
@@ -61,15 +65,23 @@ The main and only aim of this part is to develop your skills that you need durin
 
 <hr>
 <br>
-
-<h4><strong>Interview Questions</strong></h4>
+<table style= "width:100%;">
+                <tr>
+                <td style="color: #FA8072; text-align:left "><h3><strong><p>Interview Questions</td>
+                <td style="color: #FA8072; text-align:right;"><h3><strong><p>15m</p><td>                </tr>
+</table>
 <hr>
                   
 **1.  What is the purpose of using a virtual environment?**
 
 <hr>      
 <br>
-<h4><strong>Video of the Week</strong></h4>
+                  
+<table style= "width:100%;">
+                <tr>
+                <td style="color: #FA8072; text-align:left "><h3><strong><p>Video of the Week</td>
+                <td style="color: #FA8072; text-align:right;"><h3><strong><p>55m</p><td>                </tr>
+</table>                  
 
 <hr>
                   
