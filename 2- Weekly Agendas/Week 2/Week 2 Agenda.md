@@ -113,8 +113,9 @@ class="c42 c82">Questions & Problems Related to Course Topics (30m)</span><span 
 
 <br>
 **Attempt to solve the questions in the following workshop notebook on your own. It is not important whether you reach a solution or not. We encourage you to challenge yourself by thinking in Python for the solution.**
+
 <br>
-[Workshop-2 (Prep DAwPy)](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%202/Workshop2.ipynb)
+- [Workshop-2 (Prep DAwPy)](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%202/Workshop2.ipynb)
 
 <br>
 <hr>
