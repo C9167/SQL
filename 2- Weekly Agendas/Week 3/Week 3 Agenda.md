@@ -99,7 +99,7 @@ class="c42 c82">Questions & Problems Related to Course Topics (30m)</span><span 
 **Please solve questions that given in the files below.**
 
 
-1. [Please solve questions that given in the "Numpy & Pandas-Exercises" file.](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%203/Numpy%20%26%20Pandas-Exercises.ipynb)
+1. [Numpy & Pandas-Exercises](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%203/Numpy%20%26%20Pandas-Exercises.ipynb)
  
 
 <br>
