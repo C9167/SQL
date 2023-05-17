@@ -84,7 +84,7 @@ Please solve questions that given below:
                 </tr>
 </table>
 
-1- [Pandas-Project-Exercise  by using "hotel_booking_data.csv" file](https://github.com/clarusway/DS-1322-EU-DA-Module-Students/blob/main/2-%20Weekly%20Agendas/Week%2010/Pandas-Project-Exercise%20.ipynb)
+1- [Pandas-Project-Exercise  by using "hotel_booking_data.csv" file](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/Week%204/Pandas-Project-Exercise%20.ipynb)
 
   Note : This notebook is taken from Jose Portilla Udemy course.
 
