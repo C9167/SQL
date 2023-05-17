@@ -1,7 +1,7 @@
 
 <h1><strong><span style="color: #77C8D5;">STUDENT VERSION (Week-4)</strong></span>
 
-![logo](teamwork_logo.png)
+![logo](https://github.com/clarusway/DS-EU-1523-DA-Module/blob/main/2-%20Weekly%20Agendas/teamwork_logo.png)
 
 <br>
 <br>
