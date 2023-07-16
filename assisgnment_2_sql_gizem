@@ -1,0 +1,54 @@
+---1. Product Sales
+---You need to create a report on whether customers who purchased the product named '2TB Red 5400 rpm SATA III 3.5 Internal NAS HDD' buy the product below or not.
+
+--1. 'Polk Audio - 50 W Woofer - Black' -- (other_product)
+
+---To generate this report, you are required to use the appropriate SQL Server Built-in functions or expressions as well as basic SQL knowledge.
+
+
+
+
+
+SELECT c.Customer_Id, c.First_Name, c.Last_Name,
+CASE WHEN pp.Product_Name = 'Polk Audio - 50 W Woofer - Black' THEN 'Yes' ELSE 'No' END AS Other_Product
+FROM Customers c
+JOIN Product_Purchase pp ON c.Customer_Id = pp.Customer_Id
+WHERE pp.Product_Name = '2TB Red 5400 rpm SATA III 3.5 Internal NAS HDD'
+ORDER BY customer_id
+
+
+
+
+2.-----2. Conversion Rate
+
+----Below you see a table of the actions of customers visiting the website by clicking on two different types of advertisements given by an E-Commerce company. Write a query to return the conversion rate for each Advertisement typ
+----a.
+CREATE TABLE Actions (
+  Visitor_ID INT,
+  Adv_Type CHAR(1),
+  Action VARCHAR(10)
+);
+
+INSERT INTO Actions (Visitor_ID, Adv_Type, Action) VALUES
+(1, 'A', 'Left'),
+(2, 'A', 'Order'),
+(3, 'B', 'Left'),
+(4, 'A', 'Order'),
+(5, 'A', 'Review'),
+(6, 'A', 'Left'),
+(7, 'B', 'Left'),
+(8, 'B', 'Order'),
+(9, 'B', 'Review'),
+(10, 'A', 'Review');
+
+
+---b. 
+SELECT Adv_Type, COUNT(*) AS Total_Actions, SUM(CASE WHEN Action = 'Order' THEN 1 ELSE 0 END) AS Total_Orders
+FROM Actions
+GROUP BY Adv_Type;
+
+---c.
+
+SELECT Adv_Type, CAST(SUM(CASE WHEN Action = 'Order' THEN 1 ELSE 0 END) AS FLOAT) / COUNT(*) AS Conversion_Rate
+FROM Actions
+GROUP BY Adv_Type;
