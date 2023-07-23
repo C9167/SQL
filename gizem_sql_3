@@ -1,0 +1,64 @@
+-------Discount Effects
+
+-----Generate a report including product IDs and discount effects on whether the increase in the discount rate positively impacts the number of orders for the products.
+
+-----In this assignment, you are expected to generate a solution using SQL with a logical approach.
+
+
+
+
+
+
+
+
+
+
+
+
+WITH order_s AS (
+    SELECT
+        a.product_id,
+        b.order_date,
+        COUNT(*) AS total_orders
+    FROM
+        sale.order_item a
+        LEFT join sale.orders b on  a.order_id= b.order_id
+    GROUP BY
+        a.product_id,
+        b.order_date
+),
+discount_d AS (
+    SELECT
+        d.order_id,
+        d.discount,
+        LAG(d.discount) OVER (PARTITION BY a.product_id ORDER BY a.discount) AS prev_discount,
+        LEAD(d.discount) OVER (PARTITION BY a.product_id ORDER BY a.discount) AS next_discount
+    FROM
+        sale.order_item a
+)
+SELECT
+    d.order_id,
+
+  d.discount,
+    CASE
+        WHEN d.discount > COALESCE(prev_discount, 0) AND discount > COALESCE(next_discount, 0) THEN 'Positive'
+        WHEN d.discount < COALESCE(prev_discount, 0) AND discount < COALESCE(next_discount, 0) THEN 'Negative'
+        ELSE 'Neutral'
+    END AS 'Discount Effect'
+FROM
+   discount_d 
+
+LEFT JOIN
+    order_s c  ON a.order_id = b.order_id
+     AND c.order_date >= (SELECT MIN(b.order_date) FROM sale.orders b)
+ORDER BY
+    a.product_id, d.discount;   
+
+
+
+-----------
+
+
+
+
+------ hocam denedim denedim işin içinden çıkamadım.-()
