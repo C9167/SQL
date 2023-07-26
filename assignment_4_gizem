@@ -1,0 +1,59 @@
+CREATE DATABASE ManufacturerCharlie
+
+CREATE TABLE Product
+(product_id INT PRIMARY KEY,
+prod_name VARCHAR (50),
+quantity INT,
+
+)
+
+
+
+
+CREATE TABLE Component
+(comp_id INT,
+Primary Key (comp_id),
+comp_name VARCHAR(50),
+description VARCHAR(50),
+quantity_comp INT,
+)
+
+
+
+
+CREATE TABLE Prod_Comp
+(prod_id INT,
+comp_id INT,
+quantity_comp INT,
+
+    PRIMARY KEY (prod_id, comp_id),
+    FOREIGN KEY (prod_id) REFERENCES product (product_id),
+    FOREIGN KEY (comp_id) REFERENCES Component (comp_id))
+
+
+
+
+
+CREATE TABLE Supplier
+(supp_id INT,
+supp_name VARCHAR(50),
+supp_location VARCHAR(50),
+supp_contry VARCHAR(50),
+is_active BIT,
+PRIMARY KEY (supp_id),
+
+)
+
+CREATE TABLE Comp_Supp
+(supp_id INT,
+comp_id INT,
+order_date DATE,
+quantity int,
+
+
+PRIMARY KEY (supp_id,comp_id),
+FOREIGN KEY (supp_id) REFERENCES Supplier (supp_id),
+FOREIGN Key (comp_id) REFERENCES Component (comp_id)
+)
+
+
