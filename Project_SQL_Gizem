@@ -1,0 +1,254 @@
+
+
+
+
+
+CREATE DATABASE Commerce
+GO
+
+CREATE SCHEMA Commerce
+GO
+
+CREATE TABLE [Commerce].[Commerce](
+    [Ord_ID] INT NOT NULL,
+    [Cust_ID] INT NOT NULL,
+    [Prod_ID] INT NOT NULL,
+    [Ship_ID] INT NOT NULL,
+    [Order_Date] Date NOT NULL,
+    [Ship_Date] Date NOT NULL,
+    [Customer_Name] [nvarchar](100) NOT NULL,
+    [Province] [nvarchar](100) NOT NULL,
+    [Region] [nvarchar](100) NOT NULL,
+    [Customer_Segment] [nvarchar](100) NOT NULL,
+    [Sales] INT NOT NULL,
+    [Order_Quantity] INT NOT NULL,
+    [Order_Priority] [nvarchar](100) NOT NULL,
+    [DaysTakenForShipping] INT NOT NULL
+);
+
+
+SELECT*
+FROM[dbo].[commerce]
+
+
+
+-----Find the top 3 customers who have the maximum count of orders
+
+
+SELECT  Top 3 Cust_ID, COUNT(Ord_ID) as  order_cnt
+FROM Commerce
+Group BY Cust_ID
+ORDER By order_cnt DESC
+
+
+
+---2.Find the customer whose order took the maximum time to get shipping.
+
+
+SELECT Top 1 Cust_ID, Customer_Name,DaysTakenForShipping
+FROM Commerce
+ORDER BY DaysTakenForShipping Desc
+
+
+
+----3.count the total number of unique customers in january and how mant of them came back every month over the entire yaer in 2011
+
+
+
+SELECT COUNT(DISTINCT Cust_ID) AS customers_returned_every_month
+FROM (
+    SELECT Cust_ID, COUNT(DISTINCT CONCAT(Cust_ID, DATEPART(YEAR, Order_Date) * 100 + DATEPART(MONTH, Order_Date))) AS months_count
+    FROM commerce
+    WHERE DATEPART(YEAR, Order_Date) = 2011
+    GROUP BY Cust_ID
+) AS monthly_counts
+WHERE months_count = 12;
+
+
+
+----4. Write a query to return for each user the time elapsed between the first purchasing and the third purchasing , in ascending order by customer Id
+
+SELECT Cust_ID,
+       DATEDIFF(DAY, MIN(FirstPurchaseDate) OVER (PARTITION BY Cust_ID), MIN(ThirdPurchaseDate) OVER (PARTITION BY Cust_ID)) AS time_elapsed
+FROM (
+    SELECT Cust_ID,
+           Order_Date AS FirstPurchaseDate,
+           LEAD(Order_Date, 2) OVER (PARTITION BY Cust_ID ORDER BY Order_Date) AS ThirdPurchaseDate,
+           ROW_NUMBER() OVER (PARTITION BY Cust_ID ORDER BY Order_Date) AS PurchaseNum
+    FROM Commerce
+) AS purchases
+WHERE PurchaseNum = 1
+ORDER BY Cust_ID ASC;
+
+
+
+
+----5.Write a query that returns customer who purchased both 11 and product 14, as well as the ratio of these products to the total number of products purchased by the customer.
+
+SELECT Cust_ID, SUM(Order_Quantity) AS total_purchased_all_products,
+
+
+(SELECT Cust_ID,
+
+       SUM(CASE WHEN Prod_ID = 11 or Prod_ID = 14 THEN Order_Quantity ELSE 0 END) AS total_purchased_11_and_14,
+ 
+       ROUND(SUM(CASE WHEN Prod_ID = 11 or Prod_ID = 14 THEN Order_Quantity ELSE 0 END) / SUM(Order_Quantity), 2) AS ratio_11_and_14_to_total
+
+FROM Commerce
+
+WHERE Prod_ID IN (11, 14)
+GROUP BY Cust_ID
+HAVING COUNT(DISTINCT Prod_ID) = 2;) subq
+
+
+SELECT main.Cust_ID,
+       main.total_purchased_all_products,
+       subq.total_purchased_11_and_14,
+       subq.ratio_11_and_14_to_total
+FROM (
+    SELECT Cust_ID, SUM(Order_Quantity) AS total_purchased_all_products
+    FROM Commerce
+    GROUP BY Cust_ID
+) AS main
+JOIN (
+    SELECT Cust_ID,
+           SUM(CASE WHEN Prod_ID = 11 OR Prod_ID = 14 THEN Order_Quantity ELSE 0 END) AS total_purchased_11_and_14,
+           ROUND(SUM(CASE WHEN Prod_ID = 11 OR Prod_ID = 14 THEN Order_Quantity ELSE 0 END) / SUM(Order_Quantity), 2) AS ratio_11_and_14_to_total
+    FROM Commerce
+    WHERE Prod_ID IN (11, 14)
+    GROUP BY Cust_ID
+    HAVING COUNT(DISTINCT Prod_ID) = 2
+) AS subq ON main.Cust_ID = subq.Cust_ID;
+
+
+
+
+
+
+
+
+---Customer Segmentation
+
+
+CREATE VIEW CustomerVisitLogs AS
+SELECT
+    Cust_ID,
+    YEAR(Order_Date) AS [Year],
+    MONTH(Order_Date) AS [Month]
+FROM Commerce
+
+
+
+
+SELECT *
+FROM CustomerVisitLogs
+
+
+
+
+------------------------------------------
+
+
+--2.Create a �view� that keeps the number of monthly visits by users. 
+--(Show separately all months from the beginning business)
+CREATE VIEW MonthlyVisitsByUsers AS
+SELECT
+    Cust_ID,
+    YEAR(Order_Date) AS [Year],
+    MONTH(Order_Date) AS [Month],
+    COUNT(*) AS MonthlyVisits
+FROM Commerce
+GROUP BY Cust_ID, YEAR(Order_Date), MONTH(Order_Date)
+
+
+SELECT *
+FROM MonthlyVisitsByUsers
+
+
+
+
+
+------------------------------
+
+
+
+--3.For each visit of customers, create the next month of the visit as a separate column.
+CREATE VIEW CustomerNextMonthVisits1 AS
+SELECT
+    Cust_ID,
+    Order_Date AS Visit_Month,
+    LEAD(Order_Date,1, '0001-01-01') OVER (PARTITION BY Cust_ID ORDER BY Order_Date) AS Next_Month_Visit
+FROM commerce
+
+
+
+SELECT *
+FROM CustomerNextMonthVisits1
+
+
+
+----4.4.Calculate the monthly time gap between two consecutive visits by each customer.
+
+
+
+
+
+
+
+
+WITH VisitData AS (
+    SELECT
+        Cust_ID,
+        Order_Date,
+        LAG(Order_Date) OVER (PARTITION BY Cust_ID ORDER BY Order_Date) AS Previous_Order_Date
+    FROM commerce
+)
+SELECT
+    Cust_ID,
+    Order_Date AS Current_Visit_Date,
+    Previous_Order_Date AS Previous_Visit_Date,
+    DATEDIFF(MONTH, Previous_Order_Date, Order_Date) AS Gap_Months
+FROM VisitData
+WHERE Previous_Order_Date IS NOT NULL;
+
+
+
+
+--------5.Categorise customers using average time gaps. Choose the most fitted labeling model for you.
+--For example:
+-- Labeled as churn if the customer hasn't made another purchase in the months since they made their first purchase.
+-- Labeled as regular if the customer has made a purchase every month.
+
+WITH samp1 AS (
+    SELECT
+        Cust_ID,
+        Order_Date,
+        LAG(Order_Date) OVER (PARTITION BY Cust_ID ORDER BY Order_Date) AS Previous_Order_Date
+    FROM commerce
+)
+, TimeGaps AS (
+    SELECT
+        Cust_ID,
+        Order_Date,
+        Previous_Order_Date,
+        DATEDIFF(MONTH, Previous_Order_Date, Order_Date) AS Time_Gap_Months
+    FROM samp1
+    WHERE Previous_Order_Date IS NOT NULL
+)
+, AverageTimeGap AS (
+    SELECT
+        Cust_ID,
+        AVG(Time_Gap_Months) AS Avg_Time_Gap_Months
+    FROM TimeGaps
+    GROUP BY Cust_ID
+)
+SELECT
+    Cust_ID,
+    Avg_Time_Gap_Months,
+    CASE
+        WHEN Avg_Time_Gap_Months > 2 THEN 'Irregular'
+        ELSE 'Regular'
+    END AS Customer_Category
+FROM AverageTimeGap;
+
+
